@@ -1,6 +1,5 @@
 /* eslint-disable quotes */
 import { configureStore } from "@reduxjs/toolkit";
-
 import playerReducer from "./features/playerSlice";
 import { shazamCoreApi } from "./services/ShazamCore";
 

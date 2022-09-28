@@ -1,9 +1,12 @@
 /* eslint-disable quotes */
+import { useDispatch, useSelector } from "react-redux";
 import { Error, Loader, SongCard } from "../components";
 import { useGetTopChartsQuery } from "../redux/services/ShazamCore";
 import { genres } from "../assets/constants";
 
 const Discover = () => {
+  // const dispatch = useDispatch();
+  // const {} = useSelector();
   const { data, error, isFetching } = useGetTopChartsQuery();
   const genreTitle = "Pop";
 

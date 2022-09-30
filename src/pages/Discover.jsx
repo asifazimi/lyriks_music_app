@@ -30,6 +30,7 @@ const Discover = () => {
               {genre.title}
             </option>
           ))}
+          ``
         </select>
       </div>
       {/* All the songs */}

@@ -4,12 +4,19 @@ import { useDispatch } from "react-redux";
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 
-const SongCard = ({ song, i }) => {
-  const activeSong = "test";
+const SongCard = ({ data, song, i, activeSong, isPlaying }) => {
+  // useSelector() -> Gets all the states from the current state
+  // useDispath()  -> Do something with the current state
+  const dispatch = useDispatch();
 
-  const handlePauseClick = () => {};
+  const handlePauseClick = () => {
+    dispatch(playPause(false));
+  };
 
-  const handlePlayClick = () => {};
+  const handlePlayClick = () => {
+    dispatch(setActiveSong({ song, i, data }));
+    dispatch(playPause(true));
+  };
 
   return (
     <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup cursor-pointer">
@@ -25,6 +32,8 @@ const SongCard = ({ song, i }) => {
             song={song}
             handlePause={handlePauseClick}
             handlePlay={handlePlayClick}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
           />{" "}
           {/*  When you click on here the song should be played. */}
         </div>

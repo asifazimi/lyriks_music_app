@@ -6,7 +6,7 @@ import { genres } from "../assets/constants";
 
 const Discover = () => {
   // const dispatch = useDispatch();
-  // const {} = useSelector();
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, error, isFetching } = useGetTopChartsQuery();
   const genreTitle = "Pop";
 
@@ -35,7 +35,14 @@ const Discover = () => {
       {/* All the songs */}
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
         {data?.map((song, i) => (
-          <SongCard key={song.key} song={song} i={i} />
+          <SongCard
+            activeSong={activeSong}
+            isPlaying={isPlaying}
+            key={song.key}
+            song={song}
+            data={data}
+            i={i}
+          />
         ))}
       </div>
     </div>

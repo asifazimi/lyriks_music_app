@@ -17,9 +17,10 @@ const RelatedSongs = ({
       <div className="mt-6 w-full flex flex-col">
         {topRelatedSongs?.map((song, i) => (
           <SongBar
-            key={`${song.key} - ${artistId}`}
+            key={`${artistId}-${song.key}-${i}`}
             song={song}
             i={i}
+            artistId={artistId}
             isPlaying={isPlaying}
             activeSong={activeSong}
             handlePlayClick={handlePlayClick}

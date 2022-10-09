@@ -8,7 +8,7 @@ export const shazamCoreApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "X-RapidAPI-Key",
-        "6fb477f0abmshbfb78ebfa391d73p1cdd2fjsnd2eb7cb21276"
+        "442745a163msh4555d9752f413c5p1acd1ejsne8333db73415"
       );
 
       return headers;
@@ -16,6 +16,9 @@ export const shazamCoreApi = createApi({
   }),
   endpoints: (builder) => ({
     getTopCharts: builder.query({ query: () => "/charts/world" }),
+    getSongsByGenre: builder.query({
+      query: (genre) => `/charts/genre-world?genre_code=${genre}`,
+    }),
     getSongDetails: builder.query({
       query: (songid) => `/tracks/details?track_id=${songid}`,
     }),
@@ -37,4 +40,5 @@ export const {
   useGetSongRelatedQuery,
   useGetArtistDetailsQuery,
   useGetSongsByCountryQuery,
+  useGetSongsByGenreQuery,
 } = shazamCoreApi;

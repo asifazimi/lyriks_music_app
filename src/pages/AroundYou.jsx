@@ -26,13 +26,11 @@ const AroundYou = () => {
       .finally(() => setLoading(false));
   }, [country]);
 
-  if (isFetching) return <Loader title="Loading songs around you" />;
+  if (isFetching && loading) return <Loader title="Loading songs around you" />;
 
   if (error)
     // eslint-disable-next-line curly
     return <Error title={`Sorry, No songs found in ${country}.`} />;
-
-  console.log(data);
 
   return (
     <div className="flex flex-col">

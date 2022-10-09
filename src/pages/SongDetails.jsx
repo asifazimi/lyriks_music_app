@@ -56,7 +56,7 @@ const SongDetails = () => {
             <p className="text-gray-400 text-base ">Sorry, no lyrics found!</p>
           )}
         </div>
-      </div>
+      </div>  
       <RelatedSongs
         topRelatedSongs={topRelatedSongs}
         isPlaying={isPlaying}

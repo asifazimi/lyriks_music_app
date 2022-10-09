@@ -1,11 +1,11 @@
-const Error = () => (
+const Error = ({ title }) => (
   <div className="w-full flex flex-col justify-center items-center">
-    <h1 className="font-bold text-2xl text-white mt-2">
-      Something went wrong. Please try again.
-    </h1>
-    <h1 className="font-bold text-2xl text-white mt-2">
-      It is maybe a problem with network connectivity.
-    </h1>
+    <h1 className="font-bold text-2xl text-white mt-2">{title}</h1>
+    {!title && (
+      <h1 className="font-bold text-2xl text-white mt-2">
+        Something went wrong. Please try again.
+      </h1>
+    )}
   </div>
 );
 

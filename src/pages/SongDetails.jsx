@@ -26,7 +26,7 @@ const SongDetails = () => {
   const topRelatedSongs = data?.slice(0, 10);
 
   if ((isFetchingSongDetails, isFetchingSongRelated)) {
-    return <Loader title="Searching Song Details" />;
+    return <Loader title="Searching Song Details..." />;
   }
 
   if (error) return <Error />;
@@ -56,7 +56,7 @@ const SongDetails = () => {
             <p className="text-gray-400 text-base ">Sorry, no lyrics found!</p>
           )}
         </div>
-      </div>  
+      </div>
       <RelatedSongs
         topRelatedSongs={topRelatedSongs}
         isPlaying={isPlaying}

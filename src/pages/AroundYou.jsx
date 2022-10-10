@@ -26,7 +26,8 @@ const AroundYou = () => {
       .finally(() => setLoading(false));
   }, [country]);
 
-  if (isFetching && loading) return <Loader title="Loading songs around you" />;
+  if (isFetching && loading)
+    return <Loader title="Loading songs around you..." />;
 
   if (error)
     // eslint-disable-next-line curly

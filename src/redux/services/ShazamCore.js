@@ -1,3 +1,5 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable comma-dangle */
 /* eslint-disable quotes */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
@@ -8,7 +10,7 @@ export const shazamCoreApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "X-RapidAPI-Key",
-        "442745a163msh4555d9752f413c5p1acd1ejsne8333db73415"
+        import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY
       );
 
       return headers;
@@ -33,7 +35,6 @@ export const shazamCoreApi = createApi({
     }),
     getSongsBySearch: builder.query({
       query: (searchTerm) =>
-        // eslint-disable-next-line implicit-arrow-linebreak
         `/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
     }),
   }),

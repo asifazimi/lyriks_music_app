@@ -18,9 +18,7 @@ const AroundYou = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://geo.ipify.org/api/v2/country?apiKey=at_TNinGex8iRp5pdCL7HPLanVr4IoYB`
-      )
+      .get(`https://geo.ipify.org/api/v2/country?apiKey=`.VITE_GEO_API_KEY)
       .then((res) => setCountry(res?.data?.location?.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));

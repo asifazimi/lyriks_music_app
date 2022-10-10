@@ -1,3 +1,4 @@
+/* eslint-disable curly */
 /* eslint-disable nonblock-statement-body-position */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable comma-dangle */
@@ -18,7 +19,11 @@ const AroundYou = () => {
 
   useEffect(() => {
     axios
-      .get(`https://geo.ipify.org/api/v2/country?apiKey=`.VITE_GEO_API_KEY)
+      .get(
+        `https://geo.ipify.org/api/v2/country?apiKey=${
+          import.meta.env.VITE_GEO_API_KEY
+        }`
+      )
       .then((res) => setCountry(res?.data?.location?.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
@@ -26,6 +31,8 @@ const AroundYou = () => {
 
   if (isFetching && loading)
     return <Loader title="Loading songs around you..." />;
+
+  console.log(country);
 
   if (error)
     // eslint-disable-next-line curly

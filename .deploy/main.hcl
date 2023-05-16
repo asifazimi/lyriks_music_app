@@ -1,15 +1,15 @@
-job lyriks_music_app {
+job lyriks-music-app {
   datacenters = ["dc1"]
 
-  group lyriks_music_app {
+  group lyriks-music-app {
     count = 1
-    task lyriks_music_app {
+    task lyriks-music-app {
       vault {
         policies = ["blockchainr-read-secrets"]
       }
       driver = "docker"
       config {
-        image = "acrbc001.azurecr.io/lyriks_music_app:latest"
+        image = "acrbc001.azurecr.io/lyriks-music-app:latest"
         port_map {
           http = 3000
         }
@@ -31,10 +31,10 @@ job lyriks_music_app {
         }
       }
       service {
-        name = lyriks_music_app
+        name = "lyriks-music-app"
         tags = [
           "api",
-          "urlprefix-cloudstation.blockchainr.app/"
+          "urlprefix-lyriks-music-app-main.blockchainr.app/"
         ]
         port = "http"
         check {
